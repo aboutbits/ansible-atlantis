@@ -39,21 +39,6 @@ AWS_SECRET_ACCESS_KEY=
         atlantis_server_config_file: atlantis_config.yml
 ```
 
-```yaml
-- hosts: all
-  roles:
-    - role: ansible-atlantis
-      vars:
-        atlantis_server_config_file: atlantis_config.yml
-        atlantis_allowed_repos: github.com/aboutbits/infrastructur
-        atlantis_url: https://atlantis.aboutbits.cloud
-        atlantis_environment_variables: 
-          - env_variable_key: ATLANTIS_GH_USER
-            env_variable_value: {{ tools01['atlantis']['github']['user'] }}
-          - env_variable_key: ATLANTIS_GH_TOKEN
-            env_variable_value: {{ tools01['atlantis']['github']['token'] }}
-```
-
 ## Versioning
 
 In order to have a verioning in place and working, create leightweight tags that point to the appropriate minor release versions.
