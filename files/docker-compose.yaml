@@ -2,12 +2,17 @@ version: "3.8"
 
 services:
   atlantis:
-    image: ghcr.io/runatlantis/atlantis:v0.19.7
+    build:
+      context: .
     ports:
       - 4141:4141
     volumes:
+      - atlantis-data:/var/lib/atlantis
       - ./atlantis_config.yml:/etc/atlantis/atlantis_config.yml
-    command: server --config /etc/atlantis/atlantis_config.yml
     restart: unless-stopped
     env_file:
       - .env
+
+volumes:
+  atlantis-data:
+    driver: local

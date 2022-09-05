@@ -5,6 +5,12 @@
     state: directory
     mode: 0755
 
+- name: Copy Dockerfile
+  ansible.builtin.copy:
+    src: Dockerfile
+    dest: /var/docker/atlantis/Dockerfile
+    mode: 0655
+
 - name: Copy Docker Compose file
   ansible.builtin.copy:
     src: docker-compose.yaml
