@@ -1,2 +1,3 @@
 ---
-atlantis_server_config_file: atlantis_config.yml
+atlantis_config_file: atlantis_config.yml
+atlantis_env_file: atlantis_env.j2

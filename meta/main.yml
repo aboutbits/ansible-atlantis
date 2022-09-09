@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Simon Planinschek
-  description: Configure Atlantis role.
+  description: Install & configure Atlantis.
   company: AboutBits
   license: MIT
   min_ansible_version: 2.10
