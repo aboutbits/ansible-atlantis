@@ -17,6 +17,7 @@ Some configurations required by Atlantis have to be passed using environment var
 You also need to specify the required environment variables for your VCS.
 
 An example of such an environment variable file could be:
+
 ```bash
 ATLANTIS_ATLANTIS_URL={{ atlantis['url'] }}
 ATLANTIS_REPO_ALLOWLIST={{ atlantis['allowed_repos'] }}
