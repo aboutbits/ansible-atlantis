@@ -5,7 +5,7 @@ Configure Atlantis role.
 
 ## Role Variables
 
-- `atlantis_server_config_file`: The name of the atlantis server side config file (Optional)
+- `atlantis_config_file`: The name of the Atlantis server side config file (Optional)
 
 ## Requirements
 
