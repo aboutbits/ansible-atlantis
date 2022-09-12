@@ -2,19 +2,24 @@
 
 A role to install and configure Atlantis.
 
-## Role Variables
-
-- `atlantis_config_file`: The name of the Atlantis server side config file (Optional)
-- `atlantis_env_file`: The name of the Atlantis environment template file (Optional)
-
 ## Requirements
 
 - Docker and Docker Compose
-- A `atlantis_config.yml` file in your files folder. This file contains all server side config for Atlantis
-- A `atlantis_env.j2` template in your templates folder. This file contains all environment variables for Atlantis and Terraform.
 
-Some configurations required by Atlantis have to be passed using environment variables. Some required variables are `ATLANTIS_ATLANTIS_URL` and `ATLANTIS_REPO_ALLOWLIST`. 
-You also need to specify the required environment variables for your VCS.
+## Role Variables
+
+- `atlantis_config_file`: The name of the Atlantis server side config file (Optional). This file contains all server side config for Atlantis.
+- `atlantis_env_file`: The name of the Atlantis environment template file (Optional). This file contains all environment variables for Atlantis and Terraform.
+
+## Environment variables
+
+Some configurations are required by Atlantis to be passed using environment variables. Some of these required variables are `ATLANTIS_ATLANTIS_URL` and `ATLANTIS_REPO_ALLOWLIST`.
+
+In addition, you also have to provide the configuration and credentails for your desired Git host. Please take a look at the documentation for further details:
+  - [Git Host Access Credentials](https://www.runatlantis.io/docs/access-credentials.html)
+  - [Configuring Webhooks](https://www.runatlantis.io/docs/configuring-webhooks.html)
+
+Last, configure the provider credentails so Atlantis can actually run Terraform commands.
 
 An example of such an environment variable file could be:
 
@@ -37,8 +42,9 @@ The variables within the brackets are Ansible variables. You could store these s
 
 ```yaml
 - hosts: all
-  roles:
-    - role: ansible-atlantis
+  tasks:
+    - ansible.builtin.include_role:
+        name: ansible-atlantis
       vars:
         atlantis_config_file: atlantis_config.yml
         atlantis_env_file: atlantis_env.j2
