@@ -9,25 +9,25 @@
   ansible.builtin.copy:
     src: Dockerfile
     dest: /var/docker/atlantis/Dockerfile
-    mode: 0655
+    mode: 0640
 
 - name: Copy Docker Compose file
   ansible.builtin.copy:
     src: docker-compose.yaml
-    dest: /var/docker/atlantis/docker-compose.yaml
-    mode: 0655
+    dest: /var/docker/atlantis/docker-compose.yml
+    mode: 0640
 
 - name: Create Atlantis env variables file
   ansible.builtin.template:
     src: "{{ atlantis_env_file }}"
     dest: /var/docker/atlantis/.env
-    mode: 0655
+    mode: 0640
 
 - name: Copy Atlantis config
   ansible.builtin.copy:
     src: "{{ atlantis_config_file }}"
     dest: /var/docker/atlantis/atlantis_config.yml
-    mode: 0655
+    mode: 0640
 
 - name: Start the Atlantis Docker containers
   community.docker.docker_compose:
