@@ -17,6 +17,7 @@ Some configurations are required by Atlantis to be passed using environment vari
 
 In addition, you also have to provide the configuration and credentails for your desired Git host. Please take a look at the documentation for further details:
   - [Git Host Access Credentials](https://www.runatlantis.io/docs/access-credentials.html)
+  - [Webhook Secrets](https://www.runatlantis.io/docs/webhook-secrets.html)
   - [Configuring Webhooks](https://www.runatlantis.io/docs/configuring-webhooks.html)
 
 Last, configure the provider credentails so Atlantis can actually run Terraform commands.
