@@ -5,7 +5,7 @@ services:
     build:
       context: .
     ports:
-      - 4141:4141
+      - "{{ server_port }}:4141"
     volumes:
       - atlantis-data:/var/lib/atlantis
       - ./atlantis_config.yml:/etc/atlantis/atlantis_config.yml

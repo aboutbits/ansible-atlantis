@@ -8,6 +8,7 @@ A role to install and configure Atlantis.
 
 ## Role Variables
 
+- `server_port`: Atlantis server port (Optional). 
 - `atlantis_config_file`: The name of the Atlantis server side config file (Optional). This file contains all server side config for Atlantis.
 - `atlantis_env_file`: The name of the Atlantis environment template file (Optional). This file contains all environment variables for Atlantis and Terraform.
 
@@ -20,7 +21,7 @@ In addition, you also have to provide the configuration and credentails for your
   - [Webhook Secrets](https://www.runatlantis.io/docs/webhook-secrets.html)
   - [Configuring Webhooks](https://www.runatlantis.io/docs/configuring-webhooks.html)
 
-Last, configure the provider credentails so Atlantis can actually run Terraform commands.
+Last, configure the provider credentials so Atlantis can actually run Terraform commands.
 
 An example of such an environment variable file could be:
 
@@ -47,6 +48,7 @@ The variables within the brackets are Ansible variables. You could store these s
     - ansible.builtin.include_role:
         name: ansible-atlantis
       vars:
+        server_port: 4141
         atlantis_config_file: atlantis_config.yml
         atlantis_env_file: atlantis_env.j2
 ```
