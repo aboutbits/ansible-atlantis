@@ -12,8 +12,8 @@
     mode: 0640
 
 - name: Copy Docker Compose file
-  ansible.builtin.copy:
-    src: docker-compose.yml
+  ansible.builtin.template:
+    src: docker-compose.j2
     dest: /var/docker/atlantis/docker-compose.yml
     mode: 0640
 
