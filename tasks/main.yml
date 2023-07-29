@@ -33,4 +33,5 @@
   community.docker.docker_compose:
     project_src: /var/docker/atlantis
     state: present
-    pull: yes
+    pull: true
+    build: true
