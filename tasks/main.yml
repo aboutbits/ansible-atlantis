@@ -5,10 +5,16 @@
     state: directory
     mode: 0755
 
+- name: Check if the Docker Compose file exists
+  ansible.builtin.stat:
+    path: /var/docker/atlantis/docker-compose.yml
+  register: atlantis_docker_compose_file
+
 - name: Stop the Atlantis Docker containers
   community.docker.docker_compose:
     project_src: /var/docker/atlantis
     state: absent
+  when: atlantis_docker_compose_file.stat.exists
 
 - name: Copy Dockerfile
   ansible.builtin.copy:
