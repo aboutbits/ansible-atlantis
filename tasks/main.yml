@@ -44,6 +44,6 @@
   community.docker.docker_compose_v2:
     project_src: /var/docker/atlantis
     state: present
-    pull: true
+    pull: always
     build: always
     recreate: always
