@@ -11,7 +11,7 @@
   register: atlantis_docker_compose_file
 
 - name: Stop the Atlantis Docker containers
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     project_src: /var/docker/atlantis
     state: absent
   when: atlantis_docker_compose_file.stat.exists
@@ -41,8 +41,9 @@
     mode: 0640
 
 - name: Start the Atlantis Docker containers
-  community.docker.docker_compose:
+  community.docker.docker_compose_v2:
     project_src: /var/docker/atlantis
     state: present
     pull: true
-    build: true
+    build: always
+    recreate: always
