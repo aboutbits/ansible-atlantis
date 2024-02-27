@@ -8,7 +8,8 @@ A role to install and configure Atlantis.
 
 ## Role Variables
 
-- `server_port`: Atlantis server port (Optional). 
+- `docker_tag`: The Docker tag that should be used (Optional).
+- `server_port`: Atlantis server port (Optional).
 - `atlantis_config_file`: The name of the Atlantis server side config file (Optional). This file contains all server side config for Atlantis.
 - `atlantis_env_file`: The name of the Atlantis environment template file (Optional). This file contains all environment variables for Atlantis and Terraform.
 
@@ -48,6 +49,7 @@ The variables within the brackets are Ansible variables. You could store these s
     - ansible.builtin.include_role:
         name: ansible-atlantis
       vars:
+        docker_tag: v0.27.1
         server_port: 4141
         atlantis_config_file: atlantis_config.yml
         atlantis_env_file: atlantis_env.j2
