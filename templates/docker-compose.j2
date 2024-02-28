@@ -7,12 +7,10 @@ services:
     ports:
       - "{{ server_port }}:4141"
     volumes:
-      - atlantis-data:/var/lib/atlantis
-      - ./atlantis_config.yml:/etc/atlantis/atlantis_config.yml
+      - atlantis-home:/home/atlantis
+      - ./config.yml:/etc/atlantis/config.yml
     restart: unless-stopped
-    env_file:
-      - .env
 
 volumes:
-  atlantis-data:
+  atlantis-home:
     driver: local

@@ -1,5 +1,5 @@
 FROM ghcr.io/runatlantis/atlantis:{{ docker_tag }}
 
-RUN mkdir -p /var/lib/atlantis && chown atlantis:atlantis /var/lib/atlantis
+ENV ATLANTIS_REPO_CONFIG=/etc/atlantis/config.yml
 
-CMD ["atlantis", "server", "--data-dir", "/var/lib/atlantis", "--repo-config", "/etc/atlantis/atlantis_config.yml"]
+CMD ["atlantis", "server", "--repo-config", "/etc/atlantis/config.yml"]
