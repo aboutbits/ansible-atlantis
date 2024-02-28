@@ -9,6 +9,8 @@ services:
     volumes:
       - atlantis-home:/home/atlantis
       - ./config.yml:/etc/atlantis/config.yml
+    env_file:
+      - .env
     restart: unless-stopped
 
 volumes:
