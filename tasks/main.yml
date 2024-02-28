@@ -16,12 +16,6 @@
     state: absent
   when: atlantis_docker_compose_file.stat.exists
 
-- name: Copy Dockerfile
-  ansible.builtin.template:
-    src: Dockerfile.j2
-    dest: /var/docker/atlantis/Dockerfile
-    mode: 0640
-
 - name: Copy Docker Compose file
   ansible.builtin.template:
     src: docker-compose.j2
