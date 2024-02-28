@@ -2,10 +2,9 @@ version: "3.8"
 
 services:
   atlantis:
-    build:
-      context: .
+    image: ghcr.io/runatlantis/atlantis:{{ atlantis_docker_tag }}
     ports:
-      - "{{ server_port }}:4141"
+      - "{{ atlantis_server_port }}:4141"
     volumes:
       - atlantis-home:/home/atlantis
       - ./config.yml:/etc/atlantis/config.yml

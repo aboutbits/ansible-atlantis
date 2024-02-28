@@ -1,5 +1,4 @@
 ---
-docker_tag: latest
-server_port: 4141
-atlantis_config_file: atlantis_config.yml
+atlantis_docker_tag: latest
+atlantis_server_port: 4141
 atlantis_env_file: atlantis_env.j2

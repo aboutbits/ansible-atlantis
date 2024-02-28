@@ -1,5 +1,0 @@
-FROM ghcr.io/runatlantis/atlantis:{{ docker_tag }}
-
-ENV ATLANTIS_REPO_CONFIG=/etc/atlantis/config.yml
-
-CMD ["atlantis", "server", "--repo-config", "/etc/atlantis/config.yml"]

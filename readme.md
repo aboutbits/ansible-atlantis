@@ -8,9 +8,8 @@ A role to install and configure Atlantis.
 
 ## Role Variables
 
-- `docker_tag`: The Docker tag that should be used (Optional).
-- `server_port`: Atlantis server port (Optional).
-- `atlantis_config_file`: The name of the Atlantis server side config file (Optional). This file contains all server side config for Atlantis.
+- `atlantis_docker_tag`: The Docker tag that should be used (Optional).
+- `atlantis_server_port`: Atlantis server port (Optional).
 - `atlantis_env_file`: The name of the Atlantis environment template file (Optional). This file contains all environment variables for Atlantis and Terraform.
 
 ## Environment variables
@@ -29,6 +28,7 @@ An example of such an environment variable file could be:
 ```bash
 ATLANTIS_ATLANTIS_URL={{ atlantis['url'] }}
 ATLANTIS_REPO_ALLOWLIST={{ atlantis['allowed_repos'] }}
+ATLANTIS_REPO_CONFIG_JSON={"repos":[{"id":"/.*/","apply_requirements":["approved","mergeable"],"allowed_overrides":["apply_requirements","workflow","delete_source_branch_on_merge"],"allow_custom_workflows":true,"delete_source_branch_on_merge":true}]}
 
 ATLANTIS_GH_USER={{ atlantis['github']['user'] }}
 ATLANTIS_GH_TOKEN={{ atlantis['github']['token'] }}
@@ -49,9 +49,8 @@ The variables within the brackets are Ansible variables. You could store these s
     - ansible.builtin.include_role:
         name: ansible-atlantis
       vars:
-        docker_tag: v0.27.1
-        server_port: 4141
-        atlantis_config_file: atlantis_config.yml
+        atlantis_docker_tag: v0.27.1
+        atlantis_server_port: 4141
         atlantis_env_file: atlantis_env.j2
 ```
 

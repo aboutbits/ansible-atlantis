@@ -34,12 +34,6 @@
     dest: /var/docker/atlantis/.env
     mode: 0640
 
-- name: Copy Atlantis config
-  ansible.builtin.copy:
-    src: "{{ atlantis_config_file }}"
-    dest: /var/docker/atlantis/config.yml
-    mode: 0640
-
 - name: Start the Atlantis Docker containers
   community.docker.docker_compose_v2:
     project_src: /var/docker/atlantis
