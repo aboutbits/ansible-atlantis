@@ -16,7 +16,7 @@
     state: absent
   when: atlantis_docker_compose_file.stat.exists
 
-- name: Copy Docker Compose file
+- name: Copy docker-compose.yml file
   ansible.builtin.template:
     src: docker-compose.j2
     dest: /var/docker/atlantis/docker-compose.yml
