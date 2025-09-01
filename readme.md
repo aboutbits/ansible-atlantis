@@ -54,22 +54,6 @@ The variables within the brackets are Ansible variables. You could store these s
         atlantis_env_file: atlantis_env.j2
 ```
 
-## Versioning
+## Build & Publish
 
-In order to have a versioning in place and working, create lightweight tags that point to the appropriate minor release versions.
-
-Creating a new minor release:
-
-```bash
-git tag v2
-git push --tags
-```
-
-Replacing an already existing minor release:
-
-```bash
-git tag -d v2
-git push origin :refs/tags/v2
-git tag v2
-git push --tags
-```
+To build and publish the role, visit the GitHub Actions page of the repository and trigger the workflow "Release Package" manually.
