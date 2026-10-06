@@ -10,10 +10,10 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: aboutbits/github-actions-base/git-setup@v2
       - uses: aboutbits/github-actions-base/git-create-or-update-tag@v2
         with:
